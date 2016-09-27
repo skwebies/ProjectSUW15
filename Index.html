@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html ng-app="mainModule">
+<head>
+    <title>Angular Base App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <link href="CSS/master.css" rel="stylesheet" />
+    <base href="/" />
+
+</head>
+<body ng-controller="MainController">
+<div ng-include="'Views/Partials/Navbar.html'"></div>
+<main ng-view class="container-fluid"></main>
+
+
+
+<!--3rd party libs and frameworks-->
+<script src="Scripts/angular.min.js"></script>
+<script src="Scripts/angular-route.min.js"></script>
+<script src="Scripts/jquery-3.1.0.min.js"></script>
+<script src="Scripts/bootstrap.min.js"></script>    
+
+
+<!--Modules-->
+<script src="Scripts/Modules/module.js"></script>
+
+<!--Routes-->
+<script src="Scripts/Routes/route.js"></script>
+
+<!--Controllers-->
+<script src="Scripts/Controllers/main.controller.js"></script>
+<script src="Scripts/Controllers/home.controller.js"></script>
+<script src="Scripts/Controllers/about.controller.js"></script>
+
+
+</body>
+</html>
