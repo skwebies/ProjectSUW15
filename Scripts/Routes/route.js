@@ -17,8 +17,24 @@ angular.module("mainModule")
                     activeTab: 'Home'
 
                 })
+                .when("/Channels",
+                {
+                    templateUrl: "Views/Channels/Channels.html",
+                    controller: "ChannelsController",
+                    caseInsensitiveMatch: true,
+                    activeTab: 'Channels'
+
+                })
+                .when("/Channel/:id/Messages",
+                {
+                    templateUrl: "Views/Channels/ChannelMessages.html",
+                    controller: "ChannelController",
+                    caseInsensitiveMatch: true,
+                    activeTab: 'Channels'
+
+                })
                 .otherwise({
-                    redirectTo: ("/")
+                    redirectTo: "/"
                 });
 
 

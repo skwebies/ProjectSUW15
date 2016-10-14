@@ -1,0 +1,18 @@
+﻿<div class="col-md-12">
+    <h1 ng-bind="title"></h1>
+</div>
+
+<!--Loading channels to the view-->
+<div class="col-md-12">
+    <div class="col-md-3">
+        <ul class="list-group">
+            <li ng-repeat="channel in model.channels track by $index" class="list-group-item">
+                <a href="" ng-click="go('/Channel/' + channel.id + '/Messages')">
+                    <h3 ng-bind="channel.name"></h3>
+                </a>
+
+            </li>
+        </ul>
+
+    </div>
+</div><!--end of channels listing-->
