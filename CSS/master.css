@@ -1,1 +1,86 @@
 ﻿@import url('../Content/bootstrap.min.css');
+
+
+body{
+    font-family: 'Open Sans', sans-serif;
+    font-weight:300;
+}
+h1,h2,h3,h4,h5,h6 {
+    font-family: 'Open Sans', sans-serif;
+
+}
+
+a,a:hover,a:active {
+    text-decoration:none;
+}
+
+.navbar-inverse {
+    border-radius: 0;
+    background-color:#449d44;
+    border:none;
+
+}
+.navbar-inverse .navbar-nav>li>a {
+    color:#b6ff00;
+}
+.navbar-inverse .navbar-brand {
+    color:white;
+    font-size:28px;
+}
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover {
+    background-color:#044804;
+    border:none;
+}
+.send-message {
+    margin-top:50px;
+}
+.message-plus-input {
+    padding:30px;
+    border: 1px solid #f1f1f1;
+    border-radius:5px;
+    background-color:#fcfcfc;
+}
+
+
+.messages {
+    min-width:60%;
+    width:70%;
+    margin-left:4%;
+}
+
+
+.odd {
+    background: #ffffff;
+background: -moz-linear-gradient(top,  #ffffff 0%, #f3f3f3 77%, #ffffff 100%);
+background: -webkit-linear-gradient(top,  #ffffff 0%,#f3f3f3 77%,#ffffff 100%);
+background: linear-gradient(to bottom,  #ffffff 0%,#f3f3f3 77%,#ffffff 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=0 );
+
+    margin-top:5px;
+    padding:10px;
+    border-radius:20px 20px 0 20px;
+    -webkit-box-shadow: 1px 10px 13px -9px rgba(0,0,0,0.24);
+-moz-box-shadow: 1px 10px 13px -9px rgba(0,0,0,0.24);
+box-shadow: 1px 10px 13px -9px rgba(0,0,0,0.24);
+}
+.even {
+    background: #ffffff;
+background: -moz-linear-gradient(top,  #ffffff 0%, #f3f3f3 77%, #ffffff 100%);
+background: -webkit-linear-gradient(top,  #ffffff 0%,#f3f3f3 77%,#ffffff 100%);
+background: linear-gradient(to bottom,  #ffffff 0%,#f3f3f3 77%,#ffffff 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=0 );
+
+    margin-top:5px;
+    padding:10px;
+    border-radius:20px 20px 0 20px;
+    -webkit-box-shadow: 1px 10px 13px -9px rgba(0,0,0,0.24);
+-moz-box-shadow: 1px 10px 13px -9px rgba(0,0,0,0.24);
+box-shadow: 1px 10px 13px -9px rgba(0,0,0,0.24);
+}
+
+.table {
+    border:none;
+}
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    border:none;
+}

@@ -7,5 +7,7 @@ angular.module("mainModule")
             $scope.title = "Channels";
 
 
+
+
         }
     ]);

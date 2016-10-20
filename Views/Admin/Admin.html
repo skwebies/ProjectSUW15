@@ -1,0 +1,40 @@
+﻿<div class="col-md-12">
+    <h1 ng-bind="title" class="text-success"></h1>
+
+</div>
+<div class="col-md-12">
+    <div class="col-md-2">
+        <h2 class="text-success">Create Channel</h2>
+        <form ng-submit="addChannel()" name="createChannel">
+            <div class="form-group">
+                <label>Name:</label>
+                <input type="text" name="name" ng-model="newChannel.name" class="form-control" required />
+                <span ng-show="createChannel.name" class="text-danger">Channel name is required!</span>
+            </div>
+            <button type="submit" class="btn btn-success"><i class="glyphicon glyphicon-plus"></i> Create</button>
+        </form>
+
+    </div>
+    <div class="col-md-5 col-md-offset-1">
+        <h2 class="text-success">Channels</h2>
+        <table class="table table-responsive">
+            <tr ng-repeat="channel in model.channels track by $index">
+                <td>
+                    <h3 ng-bind="channel.name" class="text-info"></h3>
+
+                </td>
+                <td>
+                    <h3>
+                        <button class="btn btn-danger" title="Delete" ng-click="deleteChannel(channel)"><i class="glyphicon glyphicon-trash"></i></button>
+                        <button class="btn btn-success" title="Add to favorite"><i class="glyphicon glyphicon-heart-empty"></i></button>
+                    </h3>
+                </td>
+            </tr>
+
+        </table>
+
+    </div>
+    <div class="col-md-4">
+        <h2 class="text-success">Favorite Channels</h2>
+    </div>
+</div>

@@ -11,27 +11,27 @@ angular.module("mainModule")
             $routeProvider
                 .when("/",
                 {
-                    templateUrl: "Views/Home.html",
-                    controller: "HomeController",
-                    caseInsensitiveMatch: true,
-                    activeTab: 'Home'
-
-                })
-                .when("/Channels",
-                {
                     templateUrl: "Views/Channels/Channels.html",
                     controller: "ChannelsController",
                     caseInsensitiveMatch: true,
                     activeTab: 'Channels'
 
                 })
-                .when("/Channel/:id/Messages",
+
+                .when("/Channel/:id",
                 {
                     templateUrl: "Views/Channels/ChannelMessages.html",
                     controller: "ChannelController",
                     caseInsensitiveMatch: true,
                     activeTab: 'Channels'
 
+                })
+                .when("/Admin", {
+
+                    templateUrl: "Views/Admin/Admin.html",
+                    controller: "AdminController",
+                    caseInsensitiveMatch: true,
+                    activeTab:'Admin'
                 })
                 .otherwise({
                     redirectTo: "/"
