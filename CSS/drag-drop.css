@@ -1,0 +1,15 @@
+﻿h2.ui-widget-header {
+    color:#05be1a;
+    padding:10px;
+    background:#f8f8f8;
+    border:none;
+
+}
+div.ui-widget-content {
+    min-height:100px;
+    border:none;
+}
+
+.cssFade.ng-hide {
+    opacity: 0;
+}

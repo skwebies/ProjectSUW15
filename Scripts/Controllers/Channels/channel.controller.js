@@ -11,7 +11,7 @@ angular.module("mainModule")
 			$scope.newMessage = {}; // new message object defined
 
 			//Getting each channel
-			$scope.$watch("model.channels", function (channels) {
+			$scope.$watch("model.messages", function (channels) {
 				$scope.channel = $scope.model.channels.filter(function (channel) {
 					return channel.id == $routeParams.id;
 
@@ -20,21 +20,29 @@ angular.module("mainModule")
 			});
 
 
+			//initially Load the Messages
+			chatsApi.getMessages()
+				.then(function (data) {
+					if (data != null) {
+
+						$scope.model.messages = data;
+					}
+				});
 
 			//Sending messages to the channel
 			$scope.sendMessage = function () {
 				chatsApi.addMessage($scope.newMessage)
 				.then(function (data) {
 					if (data != null) {
-						angular.forEach($scope.model.channels, function (channel) {
-							channel.messages.push(data);
-							$scope.newMessage = {};
 
-						});
+					    $scope.model.messages = data;
+
 					}
 
 				});
 			};
+
+
 
 
 			//Getting the messages by channel

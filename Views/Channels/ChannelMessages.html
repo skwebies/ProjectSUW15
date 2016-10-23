@@ -9,8 +9,8 @@
             </h2>
         </div>
 
-        <div class="col-md-12 messages" ng-class-odd="'odd'" ng-class-even="'even'" ng-show="message" ng-repeat="message in channel.messages track by $index">
-            <div class="col-md-12">
+        <div class="col-md-12 messages ng-trans ng-trans-flip-x" ng-class-odd="'odd'" ng-class-even="'even'" ng-show="message" ng-if="channel.id==message.channelId" ng-repeat="message in channel.messages track by $index">
+            <div class="col-md-12" ng-class="">
                 <h4 ng-bind="message.body" class="text-success"></h4>
                 <h5>
                     <span><i class="glyphicon glyphicon-user text-muted"></i></span> <span ng-bind="message.author" class="text-info"></span>
@@ -25,7 +25,7 @@
     <div class="col-md-6 col-md-offset-3 send-message">
         <div class="col-md-12">
             <form ng-submit="sendMessage()" >
-                <input ng-model="newMessage.channelId" ng-bind="newMessage.channelId=channel.id" type="hidden"/>
+                <input ng-modal="newMessage.channelId" ng-bind="newMessage.channelId=channel.id"  type="hidden"/>
                 <div class="form-group">
                     <textarea ng-model="newMessage.body" class="form-control" placeholder="your message"></textarea>
                 </div>
@@ -38,6 +38,4 @@
         </div>
     </div>
 </div>
-<div id="onMessage">
 
-</div>

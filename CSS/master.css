@@ -1,6 +1,14 @@
 ﻿@import url('../Content/bootstrap.min.css');
 
 
+@import url('drag-drop.css');
+@import url('../Content/themes/base/jquery-ui.css');
+@import url('../Content/themes/base/all.css');
+@import url('ng-trans.css');
+@import url('toaster.min.css');
+
+
+
 body{
     font-family: 'Open Sans', sans-serif;
     font-weight:300;
@@ -62,6 +70,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
     -webkit-box-shadow: 1px 10px 13px -9px rgba(0,0,0,0.24);
 -moz-box-shadow: 1px 10px 13px -9px rgba(0,0,0,0.24);
 box-shadow: 1px 10px 13px -9px rgba(0,0,0,0.24);
+border:1px solid rgba(0,0,0,0.1);
 }
 .even {
     background: #ffffff;
@@ -76,6 +85,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
     -webkit-box-shadow: 1px 10px 13px -9px rgba(0,0,0,0.24);
 -moz-box-shadow: 1px 10px 13px -9px rgba(0,0,0,0.24);
 box-shadow: 1px 10px 13px -9px rgba(0,0,0,0.24);
+border:1px solid rgba(0,0,0,0.1);
 }
 
 .table {

@@ -4,7 +4,12 @@
 angular.module("mainModule",
 [
     "ngRoute",
-    "SignalR"
+    "SignalR",
+    "ngDragDrop",
+    "ui.bootstrap",
+    "toaster",
+    "ngAnimate",
+
 
 
 ]);

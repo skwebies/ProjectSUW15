@@ -1,11 +1,9 @@
 ﻿/// <reference path="../../angular.js" />
 
 angular.module("mainModule")
-    .controller("ChannelsController", [
+    .controller("FavoritesController", [
         "$scope",
         function ($scope) {
-            $scope.title = "Channels";
-
-
+            $scope.title = "Favorite Channels";
         }
     ]);

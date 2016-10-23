@@ -81,22 +81,22 @@ angular.module("mainModule")
 
 			};
 
-			////Get Messages
-			//this.getMessages = function () {
-			//    var deferred = $q.defer();
+			//Get Messages
+			this.getMessages = function () {
+			    var deferred = $q.defer();
 
-			//    $http.get(messages)
-			//        .then(function (response) {
-			//            this.messages = response.data;
-			//            deferred.resolve(response.data)
-			//        }, function () {
+			    $http.get(messages)
+			        .then(function (response) {
+			            this.messages = response.data;
+			            deferred.resolve(response.data)
+			        }, function () {
 
-			//            deferred.resolve([]);
+			            deferred.resolve([]);
 
-			//        });
-			//    return deferred.promise;
+			        });
+			    return deferred.promise;
 
-			//}
+			}
 
 
 

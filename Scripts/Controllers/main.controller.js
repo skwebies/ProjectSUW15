@@ -10,20 +10,17 @@ angular.module("mainModule")
 		"Hub",
 		"chatsApi",
 
-
-
-		function($scope,  $location, $route, $rootScope, Hub, chatsApi  ) {
+		function ($scope, $location, $route, $rootScope, Hub, chatsApi) {
 			$scope.$route = $route;
 			var path = 'http://code.webonmaster.com/signalr'; //SignalR root path assigned
-			this.Hub = Hub;
-			this.$rootScope = $rootScope;
-			$scope.model = {
-				channels: [],
 
+			$scope.model = {
+			    channels: [],
+				favChannels: [],
 				messages: []
 			};
 
-				//SignalR initial setup and hub instantiated
+			//SignalR initial setup and hub instantiated
 			var hub = new Hub('chatHub', {
 
 				rootPath: path,
@@ -31,7 +28,15 @@ angular.module("mainModule")
 				listeners: {
 					'recieveMessage': function (message) {
 						$rootScope.message = message;
-						$rootScope.$apply();
+
+						angular.forEach($scope.model.channels, function (channel) {
+
+							channel.messages.push(message);
+							$rootScope.$apply();
+						});
+						//Sending messages to the channel
+						//$scope.model.messages.push(message);
+
 						console.log("recieved recieveMessage: " + $rootScope.message);
 					}
 
@@ -60,7 +65,10 @@ angular.module("mainModule")
 							console.log("signalR.connectionState.disconnected" + state.newState);
 							break;
 					}
+
+
 				}
+
 
 
 			});
@@ -76,8 +84,12 @@ angular.module("mainModule")
 				});
 
 
+
+
+
+
 			//function that gives the access to the url path
-			$scope.go = function(url) {
+			$scope.go = function (url) {
 				$location.path(url);
 			};
 		}
