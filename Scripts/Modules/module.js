@@ -7,11 +7,10 @@ angular.module("mainModule",
     "ngMessages",
     "SignalR",
     "ngDragDrop",
-    "ngSanitize",
     "ui.bootstrap",
     "toaster",
-    "ngAnimate",
-    "angular-smilies"
+    "ngAnimate"
+
 
 
 
