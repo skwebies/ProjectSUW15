@@ -7,96 +7,113 @@ angular.module("mainModule")
 		"$q",
 
 		function ($http, $q) {
-			var api = "http://code.webonmaster.com/api";  //defining the API URL
-			var channels = api + "/channels";            // Defining the channels api url
-			var messages = api + "/messages";
+		    var api = "http://code.webonmaster.com/api";  //defining the API URL
+		    var channels = api + "/channels";            // Defining the channels api url
+		    var messages = api + "/messages";
 
 
 
-			//Get Channels
-			this.getChannels = function () {
-				var deferred = $q.defer();
+		    //Get Channels
+		    this.getChannels = function () {
+		        var deferred = $q.defer();
 
-				$http.get(channels)
+		        $http.get(channels)
 					.then(function (response) {
-						this.channels = response.data;
-						deferred.resolve(response.data);
+					    this.channels = response.data;
+					    deferred.resolve(response.data);
 
 					}, function () {
-						deferred.resolve([]);
+					    deferred.resolve([]);
 
 					});
 
-				return deferred.promise;
-			};
+		        return deferred.promise;
+		    };
 
+		    //Adding Channel
+		    this.addChannel = function (newChannel) {
+		        var deferred = $q.defer();
 
-
-			//Adding Channel
-			this.addChannel = function (newChannel) {
-				var deferred = $q.defer();
-
-				$http.post(channels, newChannel)
+		        $http.post(channels, newChannel)
 					.then(function (response) {
-						deferred.resolve(response.data);
+					    deferred.resolve(response.data);
 					}, function () {
-						deferred.resolve([]);
+					    deferred.resolve([]);
 
 					});
-			return deferred.promise;
-			};
+		        return deferred.promise;
+		    };
 
 
 
-			//Deleting Channel
-			this.deleteChannel = function (id) {
-				var deferred = $q.defer();
+		    // Update channels
+		    this.updateChannels = function (updateChannel) {
 
-				$http.delete(channels + '/' + id)
+		        var deferred = $q.defer();
+
+		        $http.put(channels + '/' + updateChannel.id, updateChannel)
 					.then(function (response) {
-						deferred.resolve(response.data);
+					    deferred.resolve(response.data);
 					}, function () {
-						deferred.resolve([]);
+					    deferred.resolve([]);
 
 					});
-			return deferred.promise;
-			};
+
+		        return deferred.promise;
 
 
+		    };
 
-			//Adding messages to the channel
-			this.addMessage = function (newMessage) {
 
-				var deferred = $q.defer();
+		    //Deleting Channel
+		    this.deleteChannel = function (id) {
+		        var deferred = $q.defer();
 
-				$http.post(messages, newMessage)
+		        $http.delete(channels + '/' + id)
 					.then(function (response) {
-						deferred.resolve(response.data);
-
+					    deferred.resolve(response.data);
 					}, function () {
-						deferred.resolve([]);
+					    deferred.resolve([]);
 
 					});
-				return deferred.promise;
+		        return deferred.promise;
+		    };
 
-			};
 
-			//Get Messages
-			this.getMessages = function () {
-			    var deferred = $q.defer();
 
-			    $http.get(messages)
-			        .then(function (response) {
-			            this.messages = response.data;
-			            deferred.resolve(response.data)
-			        }, function () {
+		    //Adding messages to the channel
+		    this.addMessage = function (newMessage) {
 
-			            deferred.resolve([]);
+		        var deferred = $q.defer();
 
-			        });
-			    return deferred.promise;
+		        $http.post(messages, newMessage)
+					.then(function (response) {
+					    deferred.resolve(response.data);
 
-			}
+					}, function () {
+					    deferred.resolve([]);
+
+					});
+		        return deferred.promise;
+
+		    };
+
+		    //Get Messages
+		    this.getMessages = function () {
+		        var deferred = $q.defer();
+
+		        $http.get(messages)
+					.then(function (response) {
+					    this.messages = response.data;
+					    deferred.resolve(response.data);
+					}, function () {
+
+					    deferred.resolve([]);
+
+					});
+		        return deferred.promise;
+
+		    };
 
 
 

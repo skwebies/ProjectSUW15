@@ -1,21 +1,31 @@
-﻿<div class="col-md-12">
-    <h1 ng-bind="title"></h1>
-</div>
+﻿<!--Loading channels to the view-->
+<div class="col-md-12 channels">
+    <div class="col-md-12">
 
-<!--Loading channels to the view-->
-<div class="col-md-12">
-    <div class="col-md-3">
-        <ul class="list-group">
-            <li ng-repeat="channel in model.channels track by $index" class="list-group-item">
-                <a href="" ng-click="go('/Channel/' + channel.id)">
-                    <h3 ng-bind="channel.name"></h3>
+        <h1 ng-bind="title" class="text-success"></h1>
 
-                </a>
+        <div class="col-md-4 col-md-offset-4">
+            <div class="form-group">
+                <input ng-model="type" placeholder="search by channel" type="text" class="form-control" />
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div ng-repeat="channel in model.channels | orderBy: 'name' | filter: type track by $index" class="col-md-3 ng-trans ng-trans-fade-up" ng-if="channel">
+
+                <div class="col-md-12">
+                    <a href="" ng-click="go('/Channel/' + channel.id)" ng-class="{'text-danger': $odd, 'text-success': $even}">
+                        <h3>
+                            <i class="glyphicon glyphicon-signal"></i> <span ng-bind="channel.name"></span>
+
+                        </h3>
+
+                    </a>
+                </div>
 
 
-            </li>
+            </div>
 
-        </ul>
+        </div>
 
     </div>
 </div><!--end of channels listing-->

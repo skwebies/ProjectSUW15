@@ -1,5 +1,4 @@
-﻿
-<!--Channel with its messages-->
+﻿<!--Channel with its messages-->
 <div class="col-md-12 message-plus-input">
     <div class="col-md-6 col-md-offset-3">
         <div class="col-md-12">
@@ -9,33 +8,16 @@
             </h2>
         </div>
 
-        <div class="col-md-12 messages ng-trans ng-trans-flip-x" ng-class-odd="'odd'" ng-class-even="'even'" ng-show="message" ng-if="channel.id==message.channelId" ng-repeat="message in channel.messages track by $index">
-            <div class="col-md-12" ng-class="">
-                <h4 ng-bind="message.body" class="text-success"></h4>
-                <h5>
-                    <span><i class="glyphicon glyphicon-user text-muted"></i></span> <span ng-bind="message.author" class="text-info"></span>
-                    <span ng-bind="message.timeSent | date:'yyyy-MM-dd HH:mm:ss'" class="text-muted"></span>
-                </h5>
-            </div>
 
-        </div>
+
+        <!--messageBox --Custom Component-->
+        <message-box></message-box>
+
 
 
     </div>
-    <div class="col-md-6 col-md-offset-3 send-message">
-        <div class="col-md-12">
-            <form ng-submit="sendMessage()" >
-                <input ng-modal="newMessage.channelId" ng-bind="newMessage.channelId=channel.id"  type="hidden"/>
-                <div class="form-group">
-                    <textarea ng-model="newMessage.body" class="form-control" placeholder="your message"></textarea>
-                </div>
-                <div class="form-group">
-                    <input type="text" class="form-control" ng-model="newMessage.author" placeholder="your name" />
-                </div>
-                <button type="submit" class="btn btn-success pull-right">Send</button>
+    <!--sendMessage -- Custom Component-->
+    <send-message></send-message>
 
-            </form>
-        </div>
-    </div>
 </div>
 

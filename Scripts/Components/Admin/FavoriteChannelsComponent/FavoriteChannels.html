@@ -1,0 +1,25 @@
+﻿ <!--Favorite Channels-->
+        <div class="col-md-5">
+            <h2 class="ui-widget-header fav">
+                <span class="glyphicon glyphicon-heart fav-channel-header-icon"></span>
+                <span>Favorite Channels</span>
+            </h2>
+            <div class="ui-widget-content" ng-model='$ctrl.favChannels' data-drop="true" jqyoui-droppable="{animate:true, beforeDrop:'$ctrl.beforeDrop'}">
+                <ul class="list-group list-unstyled">
+
+                    <li ng-repeat="channel in $ctrl.favChannels track by $index" ng-show="channel.name" data-drag="false" data-jqyoui-options="{revert: 'invalid', helper: 'clone'}" ng-model="$ctrl.favChannels" jqyoui-draggable="{index: {{$index}},animate:true}" class="list-group-item">
+
+                        <h3>
+
+                            <span><i class="glyphicon glyphicon-signal small"></i></span>
+                            <span class="text-success" ng-bind="channel.name"></span>
+                            <span ng-click="$ctrl.removeFavChannel(channel)" class="btn btn-xs"><i class="glyphicon glyphicon-remove-sign text-danger" title="Remove"></i></span>
+
+                        </h3>
+
+                    </li>
+                    <li class="placeholder" ng-hide="$ctrl.hideMe()">Drag your favorite channels here</li>
+                </ul>
+            </div>
+
+        </div>

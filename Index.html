@@ -1,12 +1,13 @@
 ﻿<!DOCTYPE html>
 <html ng-app="mainModule">
 <head>
-    <title>Dummy Chat</title>
+    <title>NG Chat</title>
     <base href="/" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="utf-8" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
     <link href="CSS/master.css" rel="stylesheet" />
+
 
 
 </head>
@@ -24,14 +25,13 @@
     <script src="Scripts/angular.min.js"></script>
     <script src="Scripts/angular-route.min.js"></script>
     <script src="Scripts/angular-signalr-hub.js"></script>
+    <script src="Scripts/messages.js"></script>
+    <script src="Scripts/angular-sanitize.js"></script>
 
     <script src="Scripts/ui-bootstrap-tpls-2.2.0.js"></script>
     <script src="Scripts/angular-animate.js"></script>
     <script src="Scripts/toaster.min.js"></script>
-
-
-
-
+    <script src="Scripts/angular-smilies.js"></script>
 
     <!--Modules-->
     <script src="Scripts/Modules/module.js"></script>
@@ -42,9 +42,14 @@
     <!--Services-->
     <script src="Scripts/Services/chat-api.service.js"></script>
 
-    <!--Directives-->
+
     <!--Components-->
     <script src="Scripts/Components/angular-dragdrop.min.js"></script>
+    <script src="Scripts/Components/MessageComponent/message.component.js"></script>
+    <script src="Scripts/Components/SendMessageComponent/send-message.component.js"></script>
+    <script src="Scripts/Components/Admin/AddChannelPlusListChannel/add-channel-and-list-channel.component.js"></script>
+    <script src="Scripts/Components/Admin/FavoriteChannelsComponent/favorite-channels.component.js"></script>
+    <script src="Scripts/Components/Admin/TrashCanComponent/trash-can.component.js"></script>
 
 
     <!--Controllers-->

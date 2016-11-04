@@ -1,4 +1,4 @@
-﻿<nav class="navbar navbar-inverse">
+﻿<nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -8,7 +8,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">DummyChat</a>
+            <a class="navbar-brand" href="/">Ng-Chat</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -21,8 +21,8 @@
 
 
             </ul>
-        <ul class="nav navbar-nav navbar-right">
-            <li ng-class="{active: $route.current.activeTab == 'Admin'}">
+            <ul class="nav navbar-nav navbar-right">
+                <li ng-class="{active: $route.current.activeTab == 'Admin'}">
                     <a href="/Admin"><i class="glyphicon glyphicon-user"></i> Admin</a>
                 </li>
             </ul>

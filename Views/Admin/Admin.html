@@ -1,61 +1,35 @@
-﻿
-
-<div class="col-md-12">
-    <h1 ng-bind="title" class="text-success"></h1>
-
-</div>
-<div class="col-md-12">
-    <div class="col-md-2">
-        <h2 class="text-success">Create Channel</h2>
-        <form ng-submit="addChannel()" name="createChannel" has-error="">
-            <div class="form-group">
-                <label>Name:</label>
-                <input type="text" name="name" ng-model="newChannel.name" class="form-control" required />
-                <span ng-show="createChannel.name" class="text-danger">Channel name is required!</span>
-            </div>
-            <button type="submit" class="btn btn-success"><i class="glyphicon glyphicon-plus"></i> Create</button>
-        </form>
+﻿<div class="admin-page">
+    <div class="col-md-12">
+        <h1 class="text-success">
+            <i class="glyphicon glyphicon-user"></i>
+            <span ng-bind="title"></span>
+        </h1>
 
     </div>
 
+    <div class="col-md-12">
+        <!--custom component for adding and listing channels in Admin Area-->
+        <add-channel-plus-list-channel></add-channel-plus-list-channel>
 
 
-    <div class="col-md-4 col-md-offset-1">
-        <h2 class="text-success">Channels</h2>
-        <ul class="list-unstyled">
-            <li ng-repeat="channel in model.channels track by $index" ng-show="channel.name"  data-jqyoui-options="{revert: 'invalid', helper: 'clone',scroll:true, cursor:'move'}" jqyoui-draggable="{index: {{$index}}, placeholder: 'keep', animate: true}" data-drag="true" ng-model="model.channels">
-                <h3>
-                    <span ng-bind="channel.name" class="text-primary"></span>
-                    <span class="btn btn-xs" title="Remove"><i class="glyphicon glyphicon-trash text-danger"ng-click="deleteChannel(channel)" ></i></span>
-
-                </h3>
-
-            </li>
-
-        </ul>
+        <!--custom component for favorite channels-->
+        <favorite-channel></favorite-channel>
 
     </div>
-    <div class="col-md-5">
-        <h2 class="ui-widget-header fav">Favorite Channels</h2>
-        <div class="ui-widget-content" ng-model='model.favChannels' data-drop="true" jqyoui-droppable="{animate:true, multiple: 'invalid', beforeDrop:'beforeDrop'}">
-            <ul class="list-group list-unstyled">
+    <div class="col-md-12">
+        <trash-can></trash-can>
+    </div>
+    <!--Toaster Notification Container-->
+    <toaster-container toaster-options="{'time-out': 3000, 'close-button':true, 'animation-class': 'toast-top-center'}"></toaster-container>
 
-                <li ng-repeat="channel in model.favChannels track by $index" ng-show="channel.name" data-drag="false" data-jqyoui-options="{revert: 'invalid', helper: 'clone'}" ng-model="model.favChannels" jqyoui-draggable="{index: {{$index}},animate:true}" class="list-group-item">
-                    <h3>
-                        <span class="text-success" ng-bind="channel.name"></span>
-                        <span ng-click="removeFavChannel(channel)" class="btn btn-xs"><i class="glyphicon glyphicon-remove-sign text-danger" title="Remove"></i></span>
-                    </h3>
-
-                </li>
-                <li class="placeholder" ng-hide="hideMe()">Drag your favorite channels here</li>
-            </ul>
+    <!--Modal for favorite channel dropping confirmation-->
+    <script type="text/ng-template" id="ModalInstance.html">
+        <div class="modal-body">
+            <b>Please confirm the addition!</b>
         </div>
-
-    </div>
-
-
-
+        <div class="modal-footer">
+            <button class="btn btn-success" ng-click="ok()">OK</button>
+            <button class="btn btn-default" ng-click="cancel()">Cancel</button>
+        </div>
+    </script>
 </div>
-
-<toaster-container toaster-options="{'time-out': 3000, 'close-button':true, 'animation-class': 'toast-top-right'}"></toaster-container>
-<div ng-include="'Scripts/Components/Modal/ModalInstance.html'"></div>

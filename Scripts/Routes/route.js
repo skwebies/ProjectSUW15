@@ -5,7 +5,7 @@ angular.module("mainModule")
         "$routeProvider",
         "$locationProvider",
 
-        function($routeProvider, $locationProvider) {
+        function ($routeProvider, $locationProvider) {
             $locationProvider.html5Mode(true);
 
             $routeProvider
@@ -31,7 +31,7 @@ angular.module("mainModule")
                     templateUrl: "Views/Admin/Admin.html",
                     controller: "AdminController",
                     caseInsensitiveMatch: true,
-                    activeTab:'Admin'
+                    activeTab: 'Admin'
                 })
                 .otherwise({
                     redirectTo: "/"

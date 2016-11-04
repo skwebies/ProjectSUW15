@@ -3,9 +3,11 @@
 angular.module("mainModule")
     .controller("ChannelsController", [
         "$scope",
+
         function ($scope) {
             $scope.title = "Channels";
 
-
+            $scope.loadChannels();
         }
+
     ]);
